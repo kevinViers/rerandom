@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "ReRandom",
+  "version": "1.0",
+  "description": "Restores functionality of r/random",
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "*://reddit.com/*",
+    "*://www.reddit.com/*"
+  ],
+  
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://reddit.com/r/random*",
+        "*://www.reddit.com/r/random*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "ReRandom Settings"
+  },
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
